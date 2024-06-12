@@ -1,0 +1,19 @@
+Rooms List
+
+<table>
+    <tr>
+        <th>Room Number</th>
+        <th>Room Type</th>
+        <th>Room Price</th>
+        <th>Room Amenities</th>
+        <th>Chekin Time</th>
+    </tr>
+
+    <tr *ngFor="let room of rooms">
+        <td>{{ room.roomType }}</td>
+        <td>{{ room.amenities }}</td>
+        <td>{{ room.price }}</td>
+        <td>{{ room.checkinTime }}</td>
+        <td>{{ room.checkoutTime }}</td>
+    </tr>
+</table>
