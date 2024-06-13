@@ -3,5 +3,7 @@
 <div [innerText]="numberofrooms"></div>
 
 <div *ngIf="room.availableRooms > 5">
-    <app-rooms-list [rooms]="roomList" (selectedRoom)="selectRoom($event)"></app-rooms-list>
+    <app-rooms-list [rooms]="roomList" [title]="title" (selectedRoom)="selectRoom($event)"></app-rooms-list>
 </div>
+
+<button (click)="toggle()">toggle</button>

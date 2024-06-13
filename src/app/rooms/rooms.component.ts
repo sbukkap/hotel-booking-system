@@ -18,6 +18,7 @@ export class RoomsComponent implements OnInit {
     availableRooms: 10,
     bookedRooms: 10,
   };
+  title = "Room List"
 
   roomList: RoomList[] = [];
   
@@ -52,4 +53,9 @@ export class RoomsComponent implements OnInit {
   selectRoom(room: RoomList) {
     console.log(room);
   }
+
+  toggle() {
+    this.title = "Roomssss List"
+  }
+
 }
