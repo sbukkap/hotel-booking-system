@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Rooms, RoomList } from './rooms';
 import { NgIf, NgFor } from '@angular/common';
-import { RoomsListComponent } from './rooms-list/rooms-list.component';
+import { RoomsListComponent} from './rooms-list/rooms-list.component';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-rooms',
   standalone: true,
-  imports: [NgIf, NgFor, RoomsListComponent],
+  imports: [NgIf, NgFor, RoomsListComponent, HeaderComponent],
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.scss']
 })
@@ -22,9 +23,12 @@ export class RoomsComponent implements OnInit {
 
   roomList: RoomList[] = [];
   
+  @ViewChild(HeaderComponent, {static: true}) headerComponent! : HeaderComponent;
+
   constructor() {}
 
   ngOnInit(): void {
+    console.log(this.headerComponent);
     this.roomList = [
       {
         roomType: "Deluxe",
