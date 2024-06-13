@@ -8,21 +8,22 @@ import { RoomsListComponent } from './rooms-list/rooms-list.component';
   standalone: true,
   imports: [NgIf, NgFor, RoomsListComponent],
   templateUrl: './rooms.component.html',
-  styleUrl: './rooms.component.scss'
+  styleUrls: ['./rooms.component.scss']
 })
-export class RoomsComponent implements OnInit{
+export class RoomsComponent implements OnInit {
   hotelname = "Shreekar";
   numberofrooms = 10;
-  room : Rooms = {
+  room: Rooms = {
     totalRooms: 20,
     availableRooms: 10,
     bookedRooms: 10,
-  }
+  };
 
   roomList: RoomList[] = [];
-  constructor(){}
+  
+  constructor() {}
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.roomList = [
       {
         roomType: "Deluxe",
@@ -45,7 +46,10 @@ export class RoomsComponent implements OnInit{
         checkinTime: new Date('11-Nov-2021'),
         checkoutTime: new Date('12-Nov-2021'), 
       }
-      
-      ];
+    ];
+  }
+
+  selectRoom(room: RoomList) {
+    console.log(room);
   }
 }

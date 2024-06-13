@@ -1,10 +1,7 @@
-
 <h1>Welcome to {{hotelname}}</h1>
 
 <div [innerText]="numberofrooms"></div>
 
-
-<div *ngIf="room.availableRooms>5"> 
-<app-rooms-list [rooms]="roomList"></app-rooms-list>
+<div *ngIf="room.availableRooms > 5">
+    <app-rooms-list [rooms]="roomList" (selectedRoom)="selectRoom($event)"></app-rooms-list>
 </div>
-

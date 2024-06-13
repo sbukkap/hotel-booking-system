@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { RoomList } from '../rooms';
 
@@ -7,15 +7,20 @@ import { RoomList } from '../rooms';
   standalone: true,
   imports: [NgFor],
   templateUrl: './rooms-list.component.html',
-  styleUrl: './rooms-list.component.scss'
+  styleUrls: ['./rooms-list.component.scss']
 })
 export class RoomsListComponent implements OnInit {
 
   @Input() rooms: RoomList[] = [];
-  
+  @Output() selectedRoom = new EventEmitter<RoomList>();  
+
   constructor() { }
 
   ngOnInit(): void {
-      
   }
+
+  selectRoom(room: RoomList) {
+    this.selectedRoom.emit(room);
+  }
+
 }
