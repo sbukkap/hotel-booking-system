@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Rooms, RoomList } from './rooms';
 import { NgIf, NgFor } from '@angular/common';
 import { RoomsListComponent} from './rooms-list/rooms-list.component';
@@ -11,7 +11,7 @@ import { HeaderComponent } from '../header/header.component';
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.scss']
 })
-export class RoomsComponent implements OnInit {
+export class RoomsComponent implements OnInit, AfterViewInit {
   hotelname = "Shreekar";
   numberofrooms = 10;
   room: Rooms = {
@@ -26,6 +26,9 @@ export class RoomsComponent implements OnInit {
   @ViewChild(HeaderComponent, {static: true}) headerComponent! : HeaderComponent;
 
   constructor() {}
+  ngAfterViewInit(): void {
+    this.headerComponent.title = 'Not Shreekar';
+  }
 
   ngOnInit(): void {
     console.log(this.headerComponent);
