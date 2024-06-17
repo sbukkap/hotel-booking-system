@@ -62,4 +62,30 @@ export class RoomsComponent implements OnInit, AfterViewInit {
     })
   }
 
+  editRoom() {
+    const room: RoomList = {
+      roomNumber: "3",
+      roomType: "Deluxe",
+      amenities: "None",
+      price: 0,
+      photos: "None",
+      checkinTime: new Date("11-Nov-2024"), 
+      checkoutTime: new Date("12-Nov-2024"),  
+      rating: 0
+    };
+
+    this.roomsService.editRoom(room).subscribe(data => {
+      this.roomList = data;
+    });
+  }
+
+  deleteRoom() {
+    this.roomsService.deleteRoom('3').subscribe(data => {
+      this.roomList = data;
+    })
+  }
+
+
+
+
 }
