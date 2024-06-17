@@ -33,7 +33,9 @@ export class RoomsComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     console.log(this.headerComponent);
-    this.roomList = this.roomsService.getRooms();
+    this.roomsService.getRooms().subscribe(rooms => {
+      this.roomList = rooms;
+    });
   }
 
   selectRoom(room: RoomList) {
