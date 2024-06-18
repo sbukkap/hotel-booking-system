@@ -19,9 +19,10 @@
             <td>{{ room.checkinTime}}</td>
             <td>{{ room.checkoutTime}}</td>
             <td>
-                <button class="btn btn-primary" (click)="selectRoom(room)">
+                <!-- <button class="btn btn-primary" (click)="selectRoom(room)">
                     Select
-                </button>
+                </button> -->
+                <button class="btn btn-primary" [routerLink]="['/rooms', room.roomNumber]"> Book Room </button>
             </td>
         </tr>
     </tbody>

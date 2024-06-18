@@ -1,11 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { RoomList } from '../rooms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-rooms-list',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, RouterLink],
   templateUrl: './rooms-list.component.html',
   styleUrls: ['./rooms-list.component.scss']
 })
