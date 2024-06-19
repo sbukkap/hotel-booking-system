@@ -1,9 +1,12 @@
 <form>
     <div class="form-group">
-        <input appHover type="text" class="form-control" name="name" [(ngModel)]="email" placeholder="provide user name">
+        <input #email="ngModel" appEmailvalidator appHover type="text" class="form-control" name="name" [(ngModel)]="email" placeholder="provide user name">
+    </div>
+    <div>
+        {{email.errors | json}}
     </div>
     <div class="form-group">
-        <input appHover type="password" class="form-control" name="name" [(ngModel)]="password" placeholder="provide password">
+        <input appEmailvalidator appHover type="password" class="form-control" name="name" [(ngModel)]="password" placeholder="provide password">
     </div>
     <div class="form-group">
         <button class="btn btn-primary" (click)="login()">Log in</button>
