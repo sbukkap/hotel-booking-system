@@ -15,17 +15,19 @@ import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@an
 export class EmailvalidatorDirective implements Validator {
 
   constructor() { }
-  validate(control: AbstractControl<any, any>): ValidationErrors | null {
-    const value = control.value as string;
-    if (value.includes('test')) {
+
+  validate(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    if (typeof value === 'string' && value.includes('admin')) {
       return {
         invalidEmail: true
       };
     }
     return null;
   }
+
+  // Uncomment and implement if needed
   // registerOnValidatorChange?(fn: () => void): void {
   //   throw new Error('Method not implemented.');
   // }
-
 }
