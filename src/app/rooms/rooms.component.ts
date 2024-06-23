@@ -4,11 +4,12 @@ import { NgIf, NgFor } from '@angular/common';
 import { RoomsListComponent} from './rooms-list/rooms-list.component';
 import { HeaderComponent } from '../header/header.component';
 import { RoomsService } from './services/rooms.service';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-rooms',
   standalone: true,
-  imports: [NgIf, NgFor, RoomsListComponent, HeaderComponent],
+  imports: [NgIf, NgFor, RoomsListComponent, HeaderComponent, RouterOutlet],
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.scss']
 })
